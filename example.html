@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script src="jquery-disk.js"></script>
+    <link rel="stylesheet" type="text/css" href="jquery-disk.css" media="all" />
+  </head>
+  <body>
+
+    <div id="info" class="drive"></div>
+
+    <script>
+
+
+    jQuery(function() {
+        //
+        var rowCount = 20;
+        var colCount = 50;
+        //
+        var info = jQuery('#info');
+        var disk = info.disk({
+            rows: rowCount,
+            cols: colCount,
+        });
+        console.log(disk);
+        //
+        var updateNode = function() {
+            var randomInt = function(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            };
+            var row = randomInt(0, rowCount-1);
+            var col = randomInt(0, colCount-1);
+            //
+            var i = disk.disk('item', row, col);
+            var color = randomInt(0, 4);
+            var colors = ['yellow', 'green', 'red', 'blue', 'magenta'];
+            i.css({'background-color': colors[color]});
+        };
+        setInterval(updateNode, 1);
+
+    });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,16 @@
+.drive {
+  display: inline-block;
+  border: 2px solid black;
+}
+
+.cluster {
+  display: block;
+}
+
+.node {
+  float: left;
+  width: 20px;
+  height: 20px;
+  border-right: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+}
